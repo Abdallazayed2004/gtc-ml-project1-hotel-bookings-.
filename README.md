@@ -1,87 +1,48 @@
-📊 Hotel Booking Demand Analysis
-Overview
+# 🏨 Hotel Booking Demand Analysis
 
-This project explores and analyzes the Hotel Booking Demand dataset to uncover patterns in customer reservations, cancellations, and booking behavior. The goal is to perform data cleaning, exploratory data analysis (EDA), and preprocessing to prepare the dataset for further machine learning modeling.
+### **📌 Project Overview**
 
-Dataset
+This repository contains an in-depth analysis of the **Hotel Booking Demand** dataset. The project walks through a comprehensive data science workflow, from initial data cleaning and exploratory data analysis (EDA) to preprocessing techniques. The goal is to deeply understand customer booking behavior, identify key drivers of demand, and prepare the dataset for downstream machine learning tasks, such as **cancellation prediction** or **customer segmentation**.
 
-Source: Hotel Booking Demand dataset (Kaggle)
+---
 
-Shape: ~119k rows × 32 columns
+### **📂 Dataset**
 
-Description: Contains information about hotel bookings such as booking dates, length of stay, number of guests, meal plans, country of origin, deposit type, and whether a booking was canceled.
+* **Source:** Hotel Booking Demand (Kaggle)
+* **Records:** Approximately 119,000 hotel bookings.
+* **Features:** 32 attributes, including reservation details, customer demographics, arrival dates, and outcomes like cancellation status.
 
-Project Workflow
+---
 
-Data Loading & Inspection
+### **🔑 Key Steps**
 
-Imported CSV file using pandas
+#### **Data Cleaning & Preprocessing**
+* **Data Import & Inspection:** The initial step involved loading the dataset and performing a preliminary review of its structure, data types, and basic descriptive statistics.
+* **Handling Missing Values:** Missing data was systematically addressed. We utilized libraries like `missingno` to visualize the distribution of missing values, which revealed a concentration in features such as `agent` and `company`. These values were then handled appropriately (e.g., imputation or removal) to maintain data integrity.
+* **Duplicate and Inconsistency Removal:** We identified and removed duplicate records and corrected inconsistencies within the dataset to ensure a clean and reliable foundation for analysis.
 
-Examined structure, data types, and summary statistics
+#### **Outlier Analysis**
+* **Detection:** The **Interquartile Range (IQR)** method was applied to detect anomalies in key numerical features, including `adr` (Average Daily Rate) and `lead_time`. This step helped in identifying unusually high or low values that could skew analysis.
+* **Visualization:** Boxplots were used to visualize the distributions of these features, providing a clear representation of the presence and magnitude of outliers.
 
-Data Cleaning
+#### **Exploratory Data Analysis (EDA)**
+* **Descriptive Statistics:** We computed and visualized descriptive statistics to uncover **booking patterns**. This included analyzing cancellation rates, distribution of lead times, and average pricing behaviors across different booking segments.
+* **Cancellation Drivers:** A key focus of the EDA was to understand the factors influencing cancellations. Our analysis highlighted that cancellation patterns are strongly influenced by **booking lead time** and **room type**, with longer lead times and certain room types showing higher cancellation rates.
 
-Identified missing values using missingno and heatmaps
+---
 
-Checked and removed duplicate rows
+### **🛠️ Tech Stack**
 
-Handled null values appropriately
+* **Language:** Python
+* **Libraries:**
+    * **Data Handling:** `pandas`, `numpy`
+    * **Visualization:** `matplotlib`, `seaborn`, `missingno`
+    * **Utilities:** `warnings`
 
-Outlier Detection
+---
 
-Applied IQR method to detect outliers in numerical features (adr, lead_time)
+### **📊 Insights**
 
-Visualized distributions with boxplots
-
-Exploratory Data Analysis (EDA)
-
-Heatmaps for missing data
-
-Statistical summaries
-
-Initial visualizations to highlight booking trends
-
-Tools & Libraries
-
-Python
-
-Pandas, NumPy
-
-Matplotlib, Seaborn
-
-Missingno
-
-Results & Insights
-
-Dataset contained significant missing values in certain features
-
-Outliers detected in adr (Average Daily Rate) and lead_time
-
-Preprocessed dataset is ready for further machine learning tasks such as predicting cancellations or customer segmentation
-
-Usage
-
-Clone the repository and open the notebook:
-
-git clone https://github.com/yourusername/hotel-booking-analysis.git
-cd hotel-booking-analysis
-jupyter notebook gtc_ml_project1_hotel_bookings__.ipynb
-
-Future Work
-
-Feature engineering for categorical variables
-
-Building predictive models (Decision Trees, Random Forest, SVM)
-
-Model evaluation & hyperparameter tuning
-
-Repository Structure
-├── gtc_ml_project1_hotel_bookings__.ipynb   # Main notebook
-├── hotel_bookings.csv                       # Dataset (if included)
-├── README.md                                # Project documentation
-└── requirements.txt                         # Python dependencies
-
-Author
-
-Your Name
-Project completed as part of a machine learning coursework project.
+* The dataset contains notable **outliers** in pricing (`adr`) and booking lead times, which require careful handling before model training.
+* Missing values are predominantly concentrated in specific categorical features, particularly `agent` and `company`.
+* **Cancellation patterns** are highly correlated with **booking lead time** and **room type**, suggesting these are critical features for a predictive model.
