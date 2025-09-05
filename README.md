@@ -2,8 +2,7 @@
 
 ### **📌 Project Overview**
 
-This repository contains an in-depth analysis of the **Hotel Booking Demand** dataset. The project walks through a comprehensive data science workflow, from initial data cleaning and exploratory data analysis (EDA) to preprocessing techniques. The goal is to deeply understand customer booking behavior, identify key drivers of demand, and prepare the dataset for downstream machine learning tasks, such as **cancellation prediction** or **customer segmentation**.
-
+This repository contains an in-depth analysis of the **Hotel Booking Demand** dataset. The project walks through a comprehensive data science workflow, from initial data cleaning and exploratory data analysis (EDA) to preprocessing techniques. The goal is to deeply understand customer booking behavior, identify key drivers of demand, and prepare the dataset for downstream machine learning modeling
 ---
 
 ### **📂 Dataset**
