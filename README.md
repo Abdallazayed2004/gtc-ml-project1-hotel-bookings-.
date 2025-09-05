@@ -1,39 +1,87 @@
-# Hotel Booking Demand Analysis and Prediction
+📊 Hotel Booking Demand Analysis
+Overview
 
-## Project Overview
+This project explores and analyzes the Hotel Booking Demand dataset to uncover patterns in customer reservations, cancellations, and booking behavior. The goal is to perform data cleaning, exploratory data analysis (EDA), and preprocessing to prepare the dataset for further machine learning modeling.
 
-This project is a comprehensive data science workflow that analyzes a dataset of hotel booking records to understand key factors influencing booking cancellations and to build a machine learning model to predict them. The project follows a structured approach, from initial data exploration to feature engineering and model preparation, ensuring the final dataset is clean and ready for predictive modeling.
+Dataset
 
-## Project Phases
+Source: Hotel Booking Demand dataset (Kaggle)
 
-### Phase 1: Exploratory Data Analysis (EDA) & Data Quality Report
+Shape: ~119k rows × 32 columns
 
-* **Goal:** Understand the structure, content, and quality of the raw data.
-* **Key Activities:**
-    * Loading and summarizing the dataset (`.info()`, `.describe()`).
-    * Identifying and visualizing missing values.
-    * Detecting outliers in key numerical columns (`adr`, `lead_time`).
-    * Checking for and counting duplicate records.
-* **Outcome:** A detailed report highlighting data quality issues, including missing values in `company` and `agent` columns, extreme outliers in `adr`, and a significant number of duplicate rows.
+Description: Contains information about hotel bookings such as booking dates, length of stay, number of guests, meal plans, country of origin, deposit type, and whether a booking was canceled.
 
-### Phase 2: Data Cleaning (The Core of the Project)
+Project Workflow
 
-* **Goal:** Address and resolve the data quality issues identified in Phase 1.
-* **Key Activities:**
-    * **Handling Missing Values:** A strategic approach to impute or handle missing data in `company`, `agent`, `country`, and `children` columns.
-    * **Removing Duplicates:** Dropping all identical rows to ensure each booking record is unique.
-    * **Handling Outliers:** Capping extreme values in the `adr` column to prevent them from skewing the data distribution.
-* **Outcome:** A cleaned, more reliable dataset free of duplicates and with handled missing and outlier values.
+Data Loading & Inspection
 
-### Phase 3: Feature Engineering & Preprocessing
+Imported CSV file using pandas
 
-* **Goal:** Transform the cleaned data into a machine learning-ready format.
-* **Key Activities:**
-    * **Creating New Features:** Generating new, more informative features like `total_guests`, `total_nights`, and `is_family` from existing columns.
-    * **Encoding Categorical Variables:** Using one-hot encoding for low-cardinality features and a custom grouping strategy for high-cardinality features like `country`.
-    * **CRITICAL STEP: Removing Data Leakage:** Dropping columns like `reservation_status` and `reservation_status_date`, which contain future information and would make the predictive model useless in a real-world scenario.
-* **Outcome:** A final, highly processed DataFrame with all necessary features engineered and encoded, ready for model training.
+Examined structure, data types, and summary statistics
 
-## How to Run the Notebook
+Data Cleaning
 
-To run this notebook, simply upload `hotel_bookings.csv` and `gtc_ml_project1_hotel_bookings__.ipynb` to Google Colab or your local Jupyter environment. Execute the cells sequentially from top to bottom.
+Identified missing values using missingno and heatmaps
+
+Checked and removed duplicate rows
+
+Handled null values appropriately
+
+Outlier Detection
+
+Applied IQR method to detect outliers in numerical features (adr, lead_time)
+
+Visualized distributions with boxplots
+
+Exploratory Data Analysis (EDA)
+
+Heatmaps for missing data
+
+Statistical summaries
+
+Initial visualizations to highlight booking trends
+
+Tools & Libraries
+
+Python
+
+Pandas, NumPy
+
+Matplotlib, Seaborn
+
+Missingno
+
+Results & Insights
+
+Dataset contained significant missing values in certain features
+
+Outliers detected in adr (Average Daily Rate) and lead_time
+
+Preprocessed dataset is ready for further machine learning tasks such as predicting cancellations or customer segmentation
+
+Usage
+
+Clone the repository and open the notebook:
+
+git clone https://github.com/yourusername/hotel-booking-analysis.git
+cd hotel-booking-analysis
+jupyter notebook gtc_ml_project1_hotel_bookings__.ipynb
+
+Future Work
+
+Feature engineering for categorical variables
+
+Building predictive models (Decision Trees, Random Forest, SVM)
+
+Model evaluation & hyperparameter tuning
+
+Repository Structure
+├── gtc_ml_project1_hotel_bookings__.ipynb   # Main notebook
+├── hotel_bookings.csv                       # Dataset (if included)
+├── README.md                                # Project documentation
+└── requirements.txt                         # Python dependencies
+
+Author
+
+Your Name
+Project completed as part of a machine learning coursework project.
